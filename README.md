@@ -1,41 +1,39 @@
-# GPT Plus Payment Long Link Extraction Tool (gopay-longlink-sub)
+# gopay-longlink-sub
 
-[](https://www.google.com/search?q=https://github.com/doublecurry/gopay-longlink-sub/blob/main/LICENSE)
+A small utility for assisting in recording subscription and billing redirect information. It reads the necessary state from the currently logged-in session and attempts to generate a billing page address that can be opened in the browser, facilitating continued operation even when page redirection is unstable, the environment changes, or the process is interrupted.
 
-[](https://github.com/doublecurry/gopay-longlink-sub/stargazers)
+> Suitable for users with some experience using browser developer tools. Please use only within your own account and device environment.
 
-This is a lightweight JavaScript tool designed to solve payment approval issues encountered when subscribing to ChatGPT Plus. By obtaining the original long link of the payment page, it helps users complete their subscription even when payment environments are restricted or page redirects fail.
+## Project Content
 
-## Main Features
+- `checkout-link-only.js`: A simplified version that only outputs key session information and the billing link.
 
-* **Link Extraction**: Automatically captures and converts the long payment link from the Stripe subscription page.
+- `gopay-long-link.js`: A version with process prompts for easy observation of requests and return results.
 
-* **Bypassing Restrictions**: Resolves `Payment Approval` errors caused by browser environments.
+- `gopay_pure_signer.py`: Related auxiliary scripts; refer to them as needed.
 
-* **Simple and Easy to Use**: Obtains the original Checkout URL with simple JS scripts.
+## How to Use
 
-## Usage Instructions
+### Method 1: Browser Console
 
-### Method 1: Console Execution (Recommended)
+1. Log in to the target account and go to the subscription/billing related page.
 
-1. Log in to your OpenAI account and go to the [ChatGPT Subscription Payment Page](https://chatgpt.com/).
+2. Press `F12` on the page to open the developer tools.
 
-2. On the payment page (usually the Stripe page where you fill in your credit card information), press `F12` to open the developer tools.
+3. Switch to the **Console** tab. 4. Copy the contents of `checkout-link-only.js` and execute it.
 
-3. Switch to the **Console** tab.
+4. Based on the console output, copy the generated page address and open it in a suitable browser environment.
 
-4. Copy and paste the code from [checkout-link-only.js](https://github.com/doublecurry/gopay-longlink-sub/blob/main/checkout-link-only.js) in this project into the console and press Enter to run it.
+### Method Two: Refer to Script Logic
 
-5. The script will output the extracted long link. Copy the link and open it in a clean browser environment.
+If you need to integrate your own debugging or automation process, you can read the request construction, response parsing, and output logic in `gopay-long-link.js` and adapt it according to your actual scenario.
 
-### Method 2: Script Integration
+## Precautions
 
-If you are a developer, you can refer to the implementation logic of `gopay-long-link.js` and integrate it into your own automation process.
+- The generated link is related to the current account session and settlement process; please do not share it publicly.
 
-## Disclaimer
+- Please protect your account, payment information, and browser environment during operation.
 
-* This project is for technical exchange and learning purposes only.
+- Page structure, API returns, or risk control strategies may change; the script's long-term stability is not guaranteed.
 
-* Please ensure your personal privacy and payment card information are protected during operation. Do not share the generated payment links with untrusted third parties.
-
-* The project author is not responsible for any account risk control or payment losses resulting from the use of this script.
+- This project is only for process observation and technical exchange purposes; users must determine the applicable scope and risks themselves.
